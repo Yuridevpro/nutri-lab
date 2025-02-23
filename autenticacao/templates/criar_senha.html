@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'autenticacao/css/css.css' %}">
+{% endblock %}
+
+{% block titulo %}Criar Nova Senha{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="logo_sidebar">
+                    <h2 class="logo">
+                        <img class="img_logo_sidebar" src="{% static 'autenticacao/img/logo_nutri_lab.png' %}">
+                    </h2>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="area_cadastrar">
+                    <h2 class="titulo">Criar Nova Senha</h2>
+                    <p class="sub-titulo">Digite e confirme sua nova senha</p>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <span class="bold">Nova Senha:</span>
+                        <input type="password" name="senha" class="form-control input-form" required>
+                        <br>
+                        <span class="bold">Confirmar Senha:</span>
+                        <input type="password" name="confirmar_senha" class="form-control input-form" required>
+                        <br>
+                        <button type="submit" class="btn-first">Salvar Nova Senha</button>
+                    </form>
+                    <p style="margin-top: 20px;">
+                        Voltar para o <a href="{% url 'logar' %}">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

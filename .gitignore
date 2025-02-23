@@ -1,0 +1,6 @@
+ambiente_virtual/
+lib/
+
+
+# Arquivo de variáveis de ambiente
+.env
